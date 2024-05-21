@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table.string('compagny_name').notNullable()
       table.string('siret_number').notNullable().unique()
       table.string('email').notNullable().unique()
-      table.string('password').notNullable()
+      table.string('password').nullable()
       table.string('status').notNullable()
       table.timestamp('created_at')
       table.timestamp('updated_at')

@@ -10,16 +10,14 @@
 
 import router from '@adonisjs/core/services/router'
 const UsersController = () => import('#controllers/users_controller')
-const RegisterController = () => import('#controllers/auth/register_controller')
+const AuthController = () => import('#controllers/auth_controller')
 
 
 
 router.group(() => {
-
-  //Route d'inscription
-  router.post('/register', [RegisterController, 'register'])
-  
-  // router.resource('users', UsersController).apiOnly()
+  router.post('/register', [AuthController, 'register'])
+  router.post('/login', [AuthController, 'login'])
+  router.get('/logout', [AuthController, 'logout'])
 }).prefix('/api')
 
 
